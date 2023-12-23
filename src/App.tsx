@@ -1,4 +1,5 @@
 import BackgroundDecoration from "./components/decorations/BackgroundDecoration";
+import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
 
@@ -13,6 +14,7 @@ function App() {
 				<BackgroundDecoration />
 				<Hero />
 			</main>
+			<Footer />
 		</div>
 	);
 }
