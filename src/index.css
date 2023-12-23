@@ -71,15 +71,9 @@
 @layer base {
 	* {
 		@apply border-border;
+		font-family: "Open Sans", sans-serif;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-gray-50 text-gray-950;
 	}
-}
-
-html,
-body,
-#root,
-.app {
-	font-family: "Open Sans", sans-serif;
 }
