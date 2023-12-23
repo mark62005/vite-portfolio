@@ -1,10 +1,14 @@
+import Header from "./components/Header";
 import BackgroundDecoration from "./components/decorations/BackgroundDecoration";
 
 function App() {
 	return (
-		<div className="bg-gray-50 text-gray-950">
-			<BackgroundDecoration />
-			Portfolio
+		<div className="relative h-[1000px]">
+			<Header />
+			<main className="">
+				<BackgroundDecoration />
+				Portfolio
+			</main>
 		</div>
 	);
 }
