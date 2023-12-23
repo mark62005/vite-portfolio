@@ -1,13 +1,17 @@
-import Header from "./components/Header";
 import BackgroundDecoration from "./components/decorations/BackgroundDecoration";
+import Header from "./components/Header";
+import Hero from "./components/Hero";
 
 function App() {
 	return (
-		<div className="relative h-[1000px]">
+		<div
+			id="#home"
+			className="relative h-[1000px] pt-28 sm:pt-36"
+		>
 			<Header />
 			<main className="">
 				<BackgroundDecoration />
-				Portfolio
+				<Hero />
 			</main>
 		</div>
 	);
