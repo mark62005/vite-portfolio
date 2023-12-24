@@ -1,10 +1,11 @@
+import { ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 type BoldTextProps = {
-	text: string;
 	className?: string;
+	children: ReactNode;
 };
-const BoldText = ({ text, className }: BoldTextProps) => {
-	return <span className={cn("font-bold", className)}>{text}</span>;
+const BoldText = ({ className, children }: BoldTextProps) => {
+	return <span className={cn("font-bold", className)}>{children}</span>;
 };
 export default BoldText;
