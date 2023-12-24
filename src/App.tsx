@@ -3,7 +3,8 @@ import BackgroundDecoration from "./components/decorations/BackgroundDecoration"
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Projects from "./components/projects";
+import Projects from "./components/Projects";
+import Skills from "./components/Skills";
 import SectionDivider from "./components/ui/SectionDivider";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
 				<SectionDivider />
 				<About />
 				<Projects />
+				<Skills />
 			</main>
 			<Footer />
 		</div>
