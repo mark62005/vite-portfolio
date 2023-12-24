@@ -51,11 +51,11 @@ const Hero = () => {
 				initial={{ opacity: 0, y: 100 }}
 				animate={{ opacity: 1, y: 0 }}
 			>
-				<BoldText text="Hello, I'm Mark." /> I&apos;m a{" "}
-				<BoldText text="self-taught full-stack developer" /> who currently
-				studying <BoldText text="Network & Systems Solutions" /> in Vancouver. I
-				enjoy building <span className="italic">sites & apps</span>. My focus is{" "}
-				<span className="underline">React (Next.js)</span>.
+				<BoldText>Hello, I&apos;m Mark.</BoldText> I&apos;m a{" "}
+				<BoldText>self-taught full-stack developer</BoldText> who currently
+				studying <BoldText>Network & Systems Solutions</BoldText> in Vancouver.
+				I enjoy building <span className="italic">sites & apps</span>. My focus
+				is <span className="underline">React (Next.js)</span>.
 			</motion.h1>
 
 			{/* BUTTONS */}
