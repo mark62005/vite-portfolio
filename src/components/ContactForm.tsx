@@ -1,5 +1,6 @@
-import { z } from "zod";
+import { FormEvent } from "react";
 import { useForm } from "react-hook-form";
+import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 
 import {
@@ -50,17 +51,24 @@ const ContactForm = () => {
 			message: "",
 		},
 	});
+	const { isValid, isLoading } = form.formState;
 
-	const onSubmit = async (data: z.infer<typeof FormSchema>) => {
-		console.log(data);
-		console.log("On submit button clicked.");
+	const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
+		if (isValid) {
+			await form.trigger();
+		} else {
+			e.preventDefault();
+		}
 	};
 
 	return (
 		<Form {...form}>
 			<form
-				onSubmit={form.handleSubmit(onSubmit)}
-				className="flex flex-col mt-10 space-y-6 dark:text-black"
+				action={import.meta.env.VITE_FORMSUBMIT_URL}
+				method="POST"
+				onSubmit={onSubmit}
+				target="_blank"
+				className="flex flex-col space-y-6 mt-10 dark:text-black"
 			>
 				{/* NAME */}
 				<FormField
@@ -116,7 +124,13 @@ const ContactForm = () => {
 						</FormItem>
 					)}
 				/>
-				<Button type="submit">Submit</Button>
+				<Button
+					type="submit"
+					disabled={!isValid || isLoading}
+					className="disabled:opacity-20"
+				>
+					Submit
+				</Button>
 			</form>
 		</Form>
 	);
