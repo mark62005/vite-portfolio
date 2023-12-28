@@ -1,4 +1,5 @@
 import About from "./components/About";
+import Contact from "./components/Contact";
 import BackgroundDecoration from "./components/decorations/BackgroundDecoration";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
@@ -21,6 +22,7 @@ function App() {
 				<About />
 				<Projects />
 				<Skills />
+				<Contact />
 			</main>
 			<Footer />
 		</div>
