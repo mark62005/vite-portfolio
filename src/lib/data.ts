@@ -20,8 +20,8 @@ export const navLinks = [
 		href: "#skills",
 	},
 	{
-		label: "Experience",
-		href: "#experience",
+		label: "Experiences",
+		href: "#experiences",
 	},
 	{
 		label: "Contact",
