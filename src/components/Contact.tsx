@@ -1,12 +1,16 @@
 import { motion } from "framer-motion";
 import SectionHeading from "./ui/SectionHeading";
 import ContactForm from "./ContactForm";
+import { useSectionInView } from "@/hooks/use-section-in-view";
+
+const email: string = import.meta.env.VITE_EMAIL;
 
 const Contact = () => {
-	const email: string = import.meta.env.VITE_EMAIL;
+	const { ref } = useSectionInView("Contact");
 
 	return (
 		<motion.section
+			ref={ref}
 			id="contact"
 			className="mb-20 w-[min(100%,38rem)] text-center sm:mb-28"
 			initial={{
