@@ -1,15 +1,19 @@
-import AnchorLink from "react-anchor-link-smooth-scroll";
 import { motion } from "framer-motion";
 import { ArrowDownToLine, Github, Linkedin, MoveRight } from "lucide-react";
 import BoldText from "./ui/BoldText";
-import MaxWidthContainer from "./MaxWidthContainer";
+import { useSectionInView } from "@/hooks/use-section-in-view";
 
 const Hero = () => {
+	const { ref } = useSectionInView("Home", 0.5);
 	const profileImgSrc = new URL("../../public/mark-wong.png", import.meta.url)
 		.href;
 
 	return (
-		<MaxWidthContainer>
+		<section
+			ref={ref}
+			id="home"
+			className="mb-28 max-w-[50rem] text-center scroll-mt-[100rem] sm:mb-0"
+		>
 			{/* IMAGE */}
 			<div className="flex items-center justify-center">
 				<div className="relative">
@@ -67,7 +71,7 @@ const Hero = () => {
 					delay: 0.1,
 				}}
 			>
-				<AnchorLink
+				<a
 					href="#contact"
 					className="
               group bg-gray-900 text-white px-7 py-3 
@@ -77,7 +81,7 @@ const Hero = () => {
 				>
 					Contact me{" "}
 					<MoveRight className="w-4 h-4 opacity-70 transition group-hover:translate-x-1" />
-				</AnchorLink>
+				</a>
 
 				<a
 					className="
@@ -119,7 +123,7 @@ const Hero = () => {
 					<Github className="h-6 w-6" />
 				</a>
 			</motion.div>
-		</MaxWidthContainer>
+		</section>
 	);
 };
 export default Hero;

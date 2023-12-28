@@ -1,8 +1,19 @@
+import { useContext } from "react";
 import { navLinks } from "@/lib/data";
 import { motion } from "framer-motion";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import { cn } from "@/lib/utils";
+import { SectionName } from "@/lib/types";
+import { ActiveSectionContext } from "@/context/ActiveSectionContext";
 
 const Header = () => {
+	const { activeSection, setActiveSection, setTimeOfLastClicked } =
+		useContext(ActiveSectionContext);
+
+	const handleOnClicked = (sectionName: SectionName) => {
+		setActiveSection(sectionName);
+		setTimeOfLastClicked(Date.now());
+	};
+
 	return (
 		<header className="relative z-10">
 			<motion.div
@@ -39,16 +50,38 @@ const Header = () => {
 					{navLinks.map((navLink, index) => (
 						<motion.li
 							key={index}
-							className="h-3/4 flex items-center justify-center"
+							className="relative h-3/4 flex items-center justify-center"
 							initial={{ y: -100 }}
 							animate={{ y: 0 }}
 						>
-							<AnchorLink
+							<a
 								href={navLink.href}
-								className="flex items-center justify-center w-full p-3 rounded-lg transition hover:text-gray-950 hover:bg-gray-200"
+								className={cn(
+									`
+										flex items-center justify-center w-full p-3 rounded-full transition 
+									hover:text-gray-950 hover:bg-gray-200
+									`,
+									{
+										"text-gray-950": activeSection === navLink.label,
+									}
+								)}
+								onClick={() => handleOnClicked(navLink.label)}
 							>
 								{navLink.label}
-							</AnchorLink>
+
+								{navLink.label === activeSection && (
+									<motion.span
+										className="absolute inset-0 -z-10 bg-gray-200 rounded-full dark:bg-gray-800"
+										layoutId="activeSection"
+										transition={{
+											type: "spring",
+											stiffness: 380,
+											damping: 30,
+										}}
+										aria-hidden="true"
+									/>
+								)}
+							</a>
 						</motion.li>
 					))}
 				</ul>
