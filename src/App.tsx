@@ -44,7 +44,7 @@ function App() {
 		<>
 			<div
 				id="home"
-				className="relative pt-28 sm:pt-36"
+				className="relative min-h-screen font-sans antialiased"
 			>
 				<ActiveSectionContextProvider>
 					<Header />
