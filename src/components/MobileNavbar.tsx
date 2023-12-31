@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { navLinks } from "@/lib/data";
 import { Button } from "./ui/button";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const MobileNavbar = () => {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -24,20 +25,10 @@ const MobileNavbar = () => {
 
 			{isOpen ? (
 				<div className="fixed inset-x-0 bottom-0 z-20 h-full bg-white">
-					<motion.ul
-						className="flex flex-col text-lg border-b"
-						// initial={{ x: 100 }}
-						// animate={{ x: 0 }}
-					>
+					<motion.ul className="flex flex-col text-lg border-b">
 						{/* CLOSE BUTTON */}
 						<li className="flex justify-between items-center h-16 mx-4">
-							<a
-								href="#home"
-								onClick={toggleMenu}
-								className="text-xl font-bold"
-							>
-								LOGO
-							</a>
+							<Logo toggleMenu={toggleMenu} />
 
 							<Button
 								size="icon"

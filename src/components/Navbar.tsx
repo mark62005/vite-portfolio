@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { navLinks } from "@/lib/data";
 import type { SectionName } from "@/lib/types";
 import MobileNavbar from "./MobileNavbar";
+import Logo from "./Logo";
 
 type NavbarProps = {
 	activeSection: SectionName;
@@ -15,12 +16,7 @@ const Navbar = ({ activeSection, handleOnClicked }: NavbarProps) => {
 			<div className="w-full max-w-screen-xl mx-auto px-4 border-b md:px-8 lg:px-20">
 				<div className="flex justify-between items-center h-16">
 					{/* LOGO */}
-					<a
-						href="/"
-						className="text-xl font-bold"
-					>
-						LOGO
-					</a>
+					<Logo />
 
 					{/* NAV MENU */}
 					<nav>
